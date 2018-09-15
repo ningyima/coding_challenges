@@ -1,14 +1,17 @@
 /**
  * 
- * @param {number} array 
+ * @param {number} string 
  * @returns {number}
  */
 
-var maxRangeSum = function(array) {
+var maxRangeSum = function(inputString) {
+  let inputArray = inputString.split(' ');
+  let stockChanges = inputArray.slice(1);
+
   let maxSum = Number.NEGATIVE_INFINITY;
   let currentSum = 0;
 
-  array.forEach(element => {
+  stockChanges.forEach(element => {
     currentSum += element;
 
     if (maxSum < currentSum) {
@@ -23,5 +26,5 @@ var maxRangeSum = function(array) {
   return maxSum;
 }
 
-console.log(maxRangeSum([7, -3, -10, 4, 2, 8, -2, 4, -5, -6]));
+console.log(maxRangeSum('10 7 -3 -10 4 2 8 -2 4 -5 -6'));
 
