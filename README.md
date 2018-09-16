@@ -28,4 +28,11 @@ $.ajax({
 
 8. Scoping and Hoisting concepts.
 
+9. a = b = c;
+  Can be written as
+  a = (b = c);
+  Is equivalent to
+  b = c;
+  a = b;
+
 
