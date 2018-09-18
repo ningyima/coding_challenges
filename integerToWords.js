@@ -5,6 +5,10 @@
  */
 
 let integerToWords = function (number) {
+  if (typeof number !== 'number') {
+    number = Number(number);
+  }
+
   if (number === 0) {
     return 'ZeroDollar';
   }

@@ -12,6 +12,10 @@ var maxRangeSum = function(inputString) {
   let currentSum = 0;
 
   stockChanges.forEach(element => {
+    if (typeof element !== 'number') {
+      element = Number(element);
+    }
+
     currentSum += element;
 
     if (maxSum < currentSum) {
