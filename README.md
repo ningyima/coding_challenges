@@ -35,4 +35,16 @@ $.ajax({
   b = c;
   a = b;
 
+10. Write a mul function which will produce the following outputs when invoked
+  console.log(mul(2)(3)(4));
+  console.log(mul(4)(3)(4));
+
+  function mul(x) {
+    return function(y) {
+      return function(z) {
+        return x * y * z;
+      }
+    }
+  }
+
 
