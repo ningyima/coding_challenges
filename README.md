@@ -134,7 +134,123 @@ General guildline for addition operators:
   typeof bar();
 
 19. What's the difference between the function declarations below?
+  var foo = function() {}
 
+  function bar() {}
+
+  Run-Time function declaration 
+  <script>
+    foo(); // Calling foo function here will give an Error
+    var foo = function(){ 
+      console.log("Hi I am inside Foo");
+    }; 
+  </script>
+
+  <script>
+    Parse-Time function declaration 
+    bar(); // Calling foo function will not give an Error
+    function bar(){ 
+      console.log("Hi I am inside Foo");
+    }; 
+</script>
+
+20. How to fix the following code?
+  const obj = {
+    a: 1,
+    b: 2,
+    getA() {
+      console.log(this.a);
+    },
+    getB() {
+      console.log(this.b);
+    }
+  };
+
+  obj.getA().getB();
+
+  const obj = {
+    a: 1,
+    b: 2,
+    getA() {
+      console.log(this.a);
+      return this;
+    },
+    getB() {
+      console.log(this.b);
+    }
+  };
+
+  obj.getA().getB();
+
+21. What's the output?
+  var myObject = {
+    hi: "test",
+    func: function() {
+        var self = this;
+        console.log("outer func:  this.hi = " + this.hi);
+        console.log("outer func:  self.hi = " + self.hi);
+        (function() {
+            console.log("inner func:  this.hi = " + this.hi);
+            console.log("inner func:  self.hi = " + self.hi);
+        }());
+    }
+  };
+  myObject.func();
+
+22. svg vs. convas?
+
+23. localStorage vs. sessionStorage
+
+24. [1, 2].print(); //1,2
+  Array.prototype.print = () => {
+
+  }
+
+25. How to modify the following code?
+  const a = function(x) {
+    this.x = x;
+  };
+
+  const b = function(x, y) {
+    this.y = y;
+  }
+
+  const newB = new b('x', 'y');
+  newB.getX();
+  newB.getY();
+
+//========================================
+  const a = function(x) {
+    this.x = x;
+  }
+
+  a.prototype = {
+    getX() {
+      return this.x;
+    }
+  }
+
+const b = function(x, y) {
+    this.y = y;
+    a.call(this, x);
+
+    getY() {
+      return this.y;
+    }
+  }
+
+26. How to make a copy of an object?
+  const obj = {
+    a: {
+      b: {
+        c: 1
+      }
+    }
+  };
+
+  const clone = JSON.parse(JSON.stringify(obj));
+  clone.a.b.c = 2;
+  console.log(obj.a.b.c);
 
 
 

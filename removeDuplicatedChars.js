@@ -15,8 +15,6 @@ function removeDuplicatedChars(str) {
   let map = {};
   let result = '';
   
-  // 
-  
   for (let i = 0; i < str.length; i++) {
       if (map[str[i]] !== undefined) {
           map[str[i]] = 1;
