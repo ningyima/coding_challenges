@@ -447,3 +447,11 @@ const b = function(x, y) {
       background-color: yellow;
       vertical-align: middle;
     }
+
+49. Find the greatest common diviser of two numbers
+  // example: 4, 6 == 2
+  // example: 2, 3 == 1
+
+  var getCommonDiviser = function(x, y) {
+    
+  }
