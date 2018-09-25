@@ -252,5 +252,198 @@ const b = function(x, y) {
   clone.a.b.c = 2;
   console.log(obj.a.b.c);
 
+27. What will be the output?
+  const obj = {
+    x: 1,
+    getX() {
+      const inner = function() {
+        console.log(this.x);
+      }
+      inner();
+    }
+  };
+
+  obj.getX(); // undefined;
+
+28. Caculate the sum of integer array
+  let ary = [1, 2, 5, 7];
+  const sumOfArray = (ary) => {
+    return ary.reduce((acc, item) => {
+      return acc + item;
+    });
+  }
+
+  console.log(sumOfArray(ary));
+  
+29. // add(1, 2);
+    // add(1)(2);
+  function add(num1, num2) {
+    if (arguments.length === 2) {
+      return num1 + num2;
+    } else {
+      return function(num3) {
+        return num1 + num3;
+      }
+    }
+  }
+
+30. What is the difference between Node.js and Tomcat server?
+
+31. What is heap / stack / queue? Are recursive functions in heap / stack / queue?
+
+32. Is JavaScript synchronous? How about JavaScript runtime: V8 engine or Node.js
+
+33. If you open a new tab in the browser, is it a new process or a new thread?
+
+34. Calculate the Nth value in Fibonacci sequence, can you use multithreading to speedup this problem?
+
+35. // const array = [1 - 100] 
+    // 1 number is missing
+
+  function findMissingNum(array) {
+    let len = array.length;
+    let total = n * (n + 1) / 2;
+
+    let arrayTotal = array.reduce((acc, item) => acc + item);
+    return (total - arrayTotal);
+  }
+
+36. Difference between
+  // function decoration
+  function x() {
+
+  }
+
+  // function expression
+  let x = function() {
+
+  }
+  // IIFE immediately invoked function expression
+  (function() {
+
+  })()
+    
+37. get the changes
+  const til = {
+    penny: 12,
+    nickel: 10,
+    dime: 2,
+    quarter: 12,
+    dollar: 30
+  };
+
+  // 20.47
+
+  function money(total) {
+    const value = {
+      penny: 1,
+      nickel: 5,
+      dime: 10,
+      quarter: 25,
+      dollar: 100
+    }
+
+    let changeTotal = total * 100; // 2047
+    
+  }
+
+38. reverse the string
+  return str.split('').reverse().join('');
+
+39. Find min and max of the array
+
+40. Find the length of an integer
+
+41. What's wrong with the following code, and how do you fix it?
+  const profile = {
+    name: 'Miller',
+    getName: () => {
+      console.log(this.name);
+    }
+  };
+
+  profile.getName();
+
+42. Count the appearing times of the max value of an array with integers
+  let x = [1, 2, 2, 4, 2, 4];
+  let mxN = Math.max(...x);
+
+43. What's the output of the following code?
+  const arr = [5, 120, 15, 21];
+  for (let i = 0; i < arr.length; i++) {
+    setTimeout(() => {
+      console.log(`Index: ${i}, element: ${arr[i]}`);
+    }, arr[i]);
+  }
+  
+  0 5
+  2 15
+  3 21
+  1 120
+
+44. Convert the time to 24 hours format
+  let time = '09:03AM';
 
 
+45. Method chaining
+  let x = {
+    a() {
+      return this;
+    },
+    b() {
+      return this;
+    }
+  };
+
+  x.a().b().a().a();
+
+46. Number to Hex
+  let x = 2;
+  x.toString(16);
+
+47. Write a program that prints the numbers from 1 to 100
+    But for multiples of three print "Fizz" instead of the number and for
+    the multiples of five print "Buzz"
+    For numbers which are multiples of both three and five print "FizzBuzz"
+
+48. Draw three squares of width 50px side by side;
+    each square should have a circle in the center with radius of 10px
+    distance between three square would be 10px    
+
+    <div class='sq'>
+      <span></span>
+    </div>
+    <div class='sq'>
+      <span></span>
+    </div>
+    <div class='sq'>
+      <span></span>
+    </div>
+
+    .sq {
+      width: 50px;
+      height: 50px;
+      border: thin dashed red;
+      float: left;
+      text-align: center;
+      position: relative;
+      box-sizing: border-box;
+      margin-left: 10px;
+    }
+
+    .sq:last-child {
+      margin-right: 0;
+    }
+
+    .sq span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background-color: yellow;
+      vertical-zlign: middle;
+    }
