@@ -28,44 +28,45 @@ var parentChildPairs = [
 // ]
 
 const specialChildren = function(parentChildPairs) {
-  let results = [];
+  let results = []; 
+  let zeroParents = []; 
+  let oneParents = [];
   
-  let zeroParents = [];
   
   for (let i = 0; i < parentChildPairs.length; i++) {
-    let zeroParent = parentChildPairs[i][0];
-    let flag = false;
-    // console.log(parentChildPairs[i]);
-
-    for(let j = 1; j < parentChildPairs.length; j++) {      
-      if (zeroParent !== parentChildPairs[j][1]) {
-        flag = !flag;
-      }
-      
-      if (j === parentChildPairs.length - 1 && flag === true) {
-        zeroParents.push(zeroParent);
-      }
+    let hasZeroParents = true;
+    
+    for (let j = 0; j < parentChildPairs.length; j++) {
+      if (parentChildPairs[i][0] === parentChildPairs[j][1]) {
+        hasZeroParents = false;
+        break;
+      }      
+    }
+    
+    if (hasZeroParents === true && !zeroParents.includes(parentChildPairs[i][0])) {
+      zeroParents.push(parentChildPairs[i][0]);
     }
   }
   
-  let oneParents = [];
-  for (let p = 0; p < parentChildPairs.length; p++) {
-    let oneParent = parentChildPairs[p][0];
+  for (let i = 0; i < parentChildPairs.length; i++) {
     let count = 0;
-
-    for(let q = 1; q < parentChildPairs.length; q++) {      
-      if (oneParent === parentChildPairs[q][1]) {
+    
+    for(let j = 0; j < parentChildPairs.length; j++) {
+      if (parentChildPairs[i][1] === parentChildPairs[j][1]) {
         count++;
+        if (count > 1) {
+          break;
+        }
       }
-      
-      if(q === parentChildPairs.length - 1 && count === 1) {
-        oneParents.push(oneParent);
-      }        
+    }
+    
+    if (count === 1 && !oneParents.includes(parentChildPairs[i][1])) {
+      oneParents.push(parentChildPairs[i][1]);
     }
   }
   
-  results.push(zeroParents);
-  results.push(oneParents);
+  results.push(zeroParents.sort((a, b) => a - b));
+  results.push(oneParents.sort((a, b) => a - b));
   return results;
 }
 
