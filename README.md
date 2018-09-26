@@ -453,5 +453,42 @@ const b = function(x, y) {
   // example: 2, 3 == 1
 
   var getCommonDiviser = function(x, y) {
-    
+
   }
+
+50. What is box model?
+
+51. How to build a triangle in CSS?
+  <div class="tri">
+  </div>
+
+  .tri {
+    height: 0;
+    width: 0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-right: 100px solid yellow;
+  }
+
+52. What are psudo elements?
+  <p>Hi</p>
+
+  p::after {
+    content: "I am injected to P tag";
+  }
+
+  p:hover::after {
+
+  }
+
+53. What is data attribute?
+  <div class="profile" data-name="techsith" data-youtube-name="techsithtube" data-id="1">Profile</div>
+
+  .profile:hover::before {
+    display: inline-block;
+    content: attr(data-name);
+  }
+
+54. console.log([] + []);
+  empty string
+
