@@ -50,7 +50,7 @@ var intToRoman = function(num) {
   const tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
   const ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 
-  let thousandNum = Math.floor(num % 1000);
+  let thousandNum = Math.floor(num / 1000);
   let hundredNum = Math.floor(num % 1000 / 100);
   let tenNum = Math.floor(num % 100 / 10);
   let oneNum = Math.floor(num % 10);
